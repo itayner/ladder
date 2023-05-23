@@ -1,6 +1,6 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 200px) {
     .nav-mob-container {
-        background-color: aqua;
+        background-color: red;
     }
 }
 @media only screen and (min-width: 1024px) {
