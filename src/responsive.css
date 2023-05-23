@@ -1,0 +1,10 @@
+@media only screen and (min-width: 768px) {
+    .nav-mob-container {
+        background-color: aqua;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .nav-mob-container {
+        background-color: blueviolet;
+    }
+}
