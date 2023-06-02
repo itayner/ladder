@@ -2,10 +2,16 @@
     .nav-mob-container {
         display: none;
     }
+    .ladder-mob-container{
+        display: none;
+    }
     
 }
 @media only screen and (max-width: 350px) {
     .nav-desk-container {
+        display: none;
+    }
+    .ladder-desk-container{
         display: none;
     }
 }

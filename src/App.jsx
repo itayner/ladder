@@ -3,6 +3,8 @@ import './App.css'
 
 import NavMob from './components/mobile/NavMob'
 import NavDesk from './components/desktop/NavDesk'
+import LadderMob from './components/mobile/content/LadderMob'
+import LadderDesk from './components/desktop/content/LadderDesk'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +13,8 @@ function App() {
     <div className="App">
       <NavMob />
       <NavDesk />
+      <LadderMob />
+      <LadderDesk />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 
 .nav-mob-container{
     width: 100%;
-    height: 100px;
+    height: 60px;
     background-color: greenyellow;
 }
 .nav-mob-wrapper{
@@ -15,4 +15,22 @@
 .nav-desk-container{
     width: 100%;
     height: 100px;
+}
+
+.ladder-mob-container{
+    display: flex;
+    background-color: blueviolet;
+}
+.ladder-mob-wrapper{
+    padding: 2px;
+}
+.ladder-mob-player{
+    padding-top: 2px;
+    padding-left: 4px;
+    border-bottom: darkolivegreen;
+}
+
+.ladder-desk-container{
+    display: flex;
+    background-color: cornflowerblue;
 }
