@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import NavMob from './components/mobile/NavMob'
-import NavDesk from './components/desktop/NavDesk'
+import NavDesk from './components/desktop/NavDesk.jsx'
 import LadderMob from './components/mobile/content/LadderMob'
 import LadderDesk from './components/desktop/content/LadderDesk'
 

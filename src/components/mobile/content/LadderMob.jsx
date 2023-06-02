@@ -8,7 +8,7 @@ function LadderMob(props) {
             <div className='ladder-mob-wrapper'>
                 {
                     arr.map(i => (
-                        <div className='ladder-mob-player'>{i.name}</div>
+                        <div key={i.name} className='ladder-mob-player'>{i.name}</div>
                     ))
                 }
             </div>
