@@ -26,12 +26,13 @@
     background-color: blueviolet;
 }
 .ladder-mob-wrapper{
+    background-color: beige;
     padding: 2px;
 }
 .ladder-mob-player{
     padding-top: 2px;
     padding-left: 4px;
-    border-bottom: darkolivegreen;
+    border-bottom: 1px;
 }
 
 .ladder-desk-container{
