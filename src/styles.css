@@ -27,7 +27,7 @@ body {
 .nav-desk-container{
     width: 100%;
     height: 100px;
-    background-color: beige;
+    background-color: greenyellow;
 }
 .nav-desk-wrapper{
     display: flex;
@@ -49,6 +49,20 @@ body {
 }
 
 .ladder-desk-container{
-    display: flex;
+    background-color: cornflowerblue;
+}
+.ladder-desk-wrapper{
+    background-color: beige;
+    padding: 2px;
+}
+.ladder-desk-player{
+    margin-top: 2px;
+    margin-left: 4px;
+    border-bottom: 2px;
+    border-color: black;
+    border-bottom-style: groove;
+}
+
+.reg-mob-container{
     background-color: cornflowerblue;
 }

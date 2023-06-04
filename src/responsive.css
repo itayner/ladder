@@ -5,6 +5,9 @@
     .ladder-mob-container{
         display: none;
     }
+    .reg-mob-container{
+        display: none;
+    }
     
 }
 @media only screen and (max-width: 350px) {
