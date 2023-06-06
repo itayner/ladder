@@ -19,6 +19,7 @@ function RegisterMob(props) {
                         <input type='password' className='form-control' id='password-1' placeholder='password' />
                         <input type='password' className='form-control' id='password-2' placeholder='confirm password' />
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
