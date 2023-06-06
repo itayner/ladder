@@ -6,12 +6,9 @@ function RegisterMob(props) {
             <div className='reg-mob-wrapper'>
                 <form>
                     <div className='mb-3'>
-                        <label className='form-label' for='first-name'>First Name</label>
-                        <input type='text' className='form-control' id='first-name'  />
-                    </div>
-                    <div className='mb-3'>
-                        <label className='form-label' for='last-name'>Last Name</label>
-                        <input type='text' className='form-control' id='last-name'  />
+                        <label className='form-label' for='first-name'>Name</label>
+                        <input type='text' className='form-control' id='first-name' placeholder='first' />
+                        <input type='text' className='form-control' id='last-name' placeholder='last' />
                     </div>
                     <div className='mb-3'>
                         <label className='form-label' for='email-1'>Email</label>
@@ -19,8 +16,8 @@ function RegisterMob(props) {
                     </div>
                     <div className='mb-3'>
                         <label className='form-label' for='password-1'>Create Password</label>
-                        <input type='password' className='form-control' id='password-1' />
-                        <input type='password' className='form-control' id='password-2' placeholder='Confirm password' />
+                        <input type='password' className='form-control' id='password-1' placeholder='password' />
+                        <input type='password' className='form-control' id='password-2' placeholder='confirm password' />
                     </div>
                 </form>
             </div>
