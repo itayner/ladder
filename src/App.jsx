@@ -5,6 +5,7 @@ import NavDesk from './components/desktop/NavDesk.jsx'
 import LadderMob from './components/mobile/content/LadderMob'
 import LadderDesk from './components/desktop/content/LadderDesk'
 import RegisterMob from './components/mobile/content/RegisterMob'
+import RegisterDesk from './components/desktop/content/RegisterDesk'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,8 +15,9 @@ function App() {
       <NavMob />
       <NavDesk />
       <RegisterMob />
+      <RegisterDesk />
       {/*<LadderMob /> */}
-      <LadderDesk />
+      {/*<LadderDesk /> */}
     </div>
   )
 }

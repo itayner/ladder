@@ -63,3 +63,12 @@ body {
     border-bottom-style: groove;
 }
 
+.reg-desk-container{
+    display: flex;
+    justify-content: center;
+}
+.reg-desk-wrapper{
+    height: 100%;
+    width: max(1400px, 40%);
+}
+
