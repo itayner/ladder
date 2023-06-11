@@ -1,25 +1,26 @@
 import React from 'react';
 
+
 function RegisterMob(props) {
     return (
         <div className='reg-mob-container'>
             <div className='reg-mob-wrapper'>
                 <form>
                     <div className='mb-1'>
-                        <label className='form-label' for='first-name'>Name</label>
-                        <input type='text' className='form-control' id='first-name' placeholder='first' />
-                        <input type='text' className='form-control' id='last-name' placeholder='last' />
+                        <label className='form-label' htmlFor='first'>Name</label>
+                        <input name='first' type='text' className='form-control' placeholder='first' />
+                        <input name='last' type='text' className='form-control' placeholder='last' />
                     </div>
                     <div className='mb-1'>
-                        <label className='form-label' for='email-1'>Email</label>
-                        <input type='text' className='form-control' id='first-name'  />
+                        <label className='form-label' htmlFor='email'>Email</label>
+                        <input name='email' type='text' className='form-control'  />
                     </div>
                     <div className='mb-1'>
-                        <label className='form-label' for='password-1'>Create Password</label>
-                        <input type='password' className='form-control' id='password-1' placeholder='password' />
-                        <input type='password' className='form-control' id='password-2' placeholder='confirm password' />
+                        <label className='form-label' htmlFor='password'>Create Password</label>
+                        <input name='password' type='password' className='form-control' placeholder='password' />
+                        <input name='passwordConfirmation' type='password' className='form-control' placeholder='confirm password' />
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
