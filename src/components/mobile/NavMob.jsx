@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenNib } from '@fortawesome/free-solid-svg-icons'
+import { faPenNib, faBars } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -18,7 +18,7 @@ function NavMob(props) {
                 <div style={{paddingRight: '10px'}}>
                     
 
-<FontAwesomeIcon icon={faPenNib} />
+<FontAwesomeIcon icon={faBars} />
                     
                     
                 </div>
