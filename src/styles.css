@@ -63,6 +63,9 @@ body {
     border-bottom-style: groove;
 }
 
+.reg-mob-container{
+    position: fixed;
+}
 .reg-mob-wrapper{
     padding: 2px;
 }
