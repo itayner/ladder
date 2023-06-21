@@ -35,7 +35,7 @@ function RegisterMob(props) {
     };
 
     return (
-        <div className='reg-mob-container'>
+        <div className='reg-mob-container' id='reg-mob-container'>
             <div className='reg-mob-wrapper'>
                 {
                     /*
