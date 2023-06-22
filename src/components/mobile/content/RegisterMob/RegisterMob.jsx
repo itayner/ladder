@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import vertScroll from './vertScroll';
 
 function RegisterMob(props) {
     const initialValues = {
@@ -33,6 +34,9 @@ function RegisterMob(props) {
             <div className='' style={{color: '#dc3545'}}>{msg}</div>
         );
     };
+    useEffect(()=>{
+        vertScroll();
+    }, [])
 
     return (
         <div className='reg-mob-container' id='reg-mob-container'>

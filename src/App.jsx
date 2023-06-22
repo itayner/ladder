@@ -4,7 +4,7 @@ import NavMob from './components/mobile/NavMob'
 import NavDesk from './components/desktop/NavDesk.jsx'
 import LadderMob from './components/mobile/content/LadderMob'
 import LadderDesk from './components/desktop/content/LadderDesk'
-import RegisterMob from './components/mobile/content/RegisterMob/RegisterMob'
+import RegisterMob from './components/mobile/content/RegisterMob/RegisterMob.jsx'
 import RegisterDesk from './components/desktop/content/RegisterDesk'
 
 function App() {
