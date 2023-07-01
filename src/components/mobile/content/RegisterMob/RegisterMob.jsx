@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import vertScroll from './vertScroll';
+import vertScroll from './../../../../util/vertScroll';
 
 function RegisterMob(props) {
     const initialValues = {
@@ -35,7 +35,7 @@ function RegisterMob(props) {
         );
     };
     useEffect(()=>{
-        vertScroll();
+        vertScroll('#reg-mob-container');
     }, [])
 
     return (
