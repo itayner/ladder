@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import NavMob from './components/mobile/NavMob'
+import NavDropdown from './components/mobile/NavDropdown'
 import NavDesk from './components/desktop/NavDesk.jsx'
 import LadderMob from './components/mobile/content/LadderMob'
 import LadderDesk from './components/desktop/content/LadderDesk'
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="app" style={{position: 'absolute'}}>
       <NavMob />
+      <NavDropdown />
       <NavDesk />
       <RegisterMob />
       <RegisterDesk />

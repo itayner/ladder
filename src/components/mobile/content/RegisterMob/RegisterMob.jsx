@@ -71,12 +71,12 @@ function RegisterMob(props) {
             >
             {
                 ({errors, touched}) => (
-            <Form style={{position: 'absolute'}}>
+            <Form>
                 {errors && getErrorElem(errors)}
                     <div className='mb-1'>
                         <label className='form-label' htmlFor='first'>Name</label>
-                        <Field style={{position: 'relative', zIndex: 1}} name='first' type='text' className='form-control' placeholder='first'/>
-                        <Field style={{position: 'relative'}} name='last' type='text' className='form-control' placeholder='last'/>
+                        <Field name='first' type='text' className='form-control' placeholder='first'/>
+                        <Field name='last' type='text' className='form-control' placeholder='last'/>
                     </div>
                     <div className='mb-1'>
                         <label className='form-label' htmlFor='email'>Email</label>

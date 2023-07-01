@@ -17,15 +17,10 @@ function NavMob(props) {
 
         <div className='nav-mob-container'>
             <div className='nav-mob-wrapper'>
-                <div className='dropdown' style={{paddingRight: '10px'}}>
+                <div style={{paddingRight: '10px'}}>
                     
 
-<FontAwesomeIcon data-bs-toggle='dropdown' icon={faBars} />
-<ul class="dropdown-menu" style={{zIndex: 10}}>
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
+<FontAwesomeIcon icon={faBars} />
                     
                     
                 </div>
