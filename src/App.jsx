@@ -11,7 +11,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="app">
+    <div className="app" style={{position: 'absolute'}}>
       <NavMob />
       <NavDesk />
       <RegisterMob />
