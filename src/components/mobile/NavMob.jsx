@@ -1,16 +1,20 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenNib, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import $ from 'jquery';
 
-
+import { useNavDropdownMob } from '../../contexts/navDropdownMob';
 
 import '../../../src/styles.css';
 import '../../../src/responsive.css'
 
 function NavMob(props) {
-    const [expanded, setExpanded] = useState(false);
 
-    const onMenuIconClick = () => setExpanded(!expanded);
+    const {state, dispatch} = useNavDropdownMob();
+
+    const onClick = () => {
+        dispatch({type: 'toggle'});
+    };
 
     return (
 
@@ -20,7 +24,7 @@ function NavMob(props) {
                 <div style={{paddingRight: '10px'}}>
                     
 
-<FontAwesomeIcon icon={faBars} />
+<FontAwesomeIcon icon={faBars} onClick={onClick} />
                     
                     
                 </div>
