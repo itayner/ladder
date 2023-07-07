@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import {Routes, Route } from "react-router-dom";
+
 
 import NavMob from './components/mobile/NavMob'
 import NavDropdownMob from './components/mobile/NavDropdownMob'
@@ -19,10 +21,14 @@ function App() {
         <NavMob />
         <NavDropdownMob />
       </NavDropdownMobProvider>
+
+      <Routes>
+      <Route path='/' element={<LadderMob />} />
+      <Route path='/ladder' element={<RegisterMob />} />
+      </Routes>
+      
       <NavDesk />
-      <RegisterMob />
       <RegisterDesk />
-      {/*<LadderMob /> */}
       {/*<LadderDesk /> */}
     </div>
   )
