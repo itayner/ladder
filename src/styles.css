@@ -107,3 +107,6 @@ body {
     width: max(500px, 30%);
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}

@@ -24,7 +24,7 @@ function NavMob(props) {
                 <div style={{paddingRight: '10px'}}>
                     
 
-<FontAwesomeIcon icon={faBars} onClick={onClick} />
+<FontAwesomeIcon className='nav-mob cursor-pointer' icon={faBars} onClick={onClick} />
                     
                     
                 </div>
