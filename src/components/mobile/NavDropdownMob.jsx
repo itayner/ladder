@@ -6,7 +6,12 @@ import { useNavigate } from 'react-router-dom';
 function NavDropdownMob(props) {
 
   const navigate = useNavigate();
-  const {state} = useNavDropdownMob();
+  const {state, dispatch} = useNavDropdownMob();
+
+  const onClick = (route) => () => {
+    navigate(route);
+    dispatch({type: 'toggle'});
+  }
 
     return (
 <ul className="nav-dropdown-mob cursor-pointer" style={{display: `${state.visible ? 'block' : 'none'}`}}>

@@ -13,7 +13,6 @@ import RegisterDesk from './components/desktop/content/RegisterDesk'
 import { NavDropdownMobProvider } from './contexts/navDropdownMob'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="app" style={{position: 'absolute'}}>
