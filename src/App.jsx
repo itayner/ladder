@@ -23,10 +23,10 @@ function App() {
       </NavDropdownMobProvider>
 
       <Routes>
-      <Route path='/' element={<LadderMob />} />
-      <Route path='/ladder' element={<RegisterMob />} />
+      <Route path='/ladder' element={<LadderMob />} />
+      <Route path='/register' element={<RegisterMob />} />
       </Routes>
-      
+
       <NavDesk />
       <RegisterDesk />
       {/*<LadderDesk /> */}

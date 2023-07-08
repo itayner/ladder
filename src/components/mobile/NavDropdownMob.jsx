@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavDropdownMob } from '../../contexts/navDropdownMob';
+import { Link } from 'react-router-dom';
 
 function NavDropdownMob(props) {
 
@@ -7,9 +8,8 @@ function NavDropdownMob(props) {
 
     return (
 <ul className="nav-dropdown-mob cursor-pointer" style={{display: `${state.visible ? 'block' : 'none'}`}}>
-    <li className='nav-dropdown-item'>Login</li>
-    <li className='nav-dropdwon-item'>Register</li>
-    <li className='nav-dropdown-item'>Ladder</li>
+    <li className='nav-dropdown-item'><Link to='/register'>Register</Link></li>
+    <li className='nav-dropdown-item'><Link to='/ladder'>Ladder</Link></li>
   </ul>
     );
 }
