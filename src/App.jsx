@@ -25,6 +25,7 @@ function App() {
       <Routes>
       <Route path='/ladder' element={<LadderMob />} />
       <Route path='/register' element={<RegisterMob />} />
+      <Route path='/' element={<LadderMob />} />
       </Routes>
 
       <NavDesk />
