@@ -12,8 +12,9 @@ function NavMob(props) {
 
     const {state, dispatch} = useNavDropdownMob();
 
-    const onClick = () => {
+    const onClick = (e) => {
         dispatch({type: 'toggle'});
+        e.stopPropagation();
     };
 
     return (

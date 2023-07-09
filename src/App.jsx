@@ -11,21 +11,16 @@ import RegisterMob from './components/mobile/content/RegisterMob/RegisterMob.jsx
 import RegisterDesk from './components/desktop/content/RegisterDesk'
 
 import { NavDropdownMobProvider } from './contexts/navDropdownMob'
+import Mob from './components/mobile/Mob';
 
 function App() {
 
   return (
     <div className="app" style={{position: 'absolute'}}>
       <NavDropdownMobProvider>
-        <NavMob />
-        <NavDropdownMob />
+        <Mob />
       </NavDropdownMobProvider>
 
-      <Routes>
-      <Route path='/ladder' element={<LadderMob />} />
-      <Route path='/register' element={<RegisterMob />} />
-      <Route path='/' element={<LadderMob />} />
-      </Routes>
 
       <NavDesk />
       <RegisterDesk />

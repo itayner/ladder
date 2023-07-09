@@ -8,15 +8,16 @@ function NavDropdownMob(props) {
   const navigate = useNavigate();
   const {state, dispatch} = useNavDropdownMob();
 
-  const onClick = (route) => () => {
+  const onClick = (route) => (e) => {
     navigate(route);
     dispatch({type: 'toggle'});
+    e.stopPropagation();
   }
 
     return (
 <ul className="nav-dropdown-mob cursor-pointer" style={{display: `${state.visible ? 'block' : 'none'}`}}>
-    <li className='nav-dropdown-item' onClick={()=>navigate('/register')}>Register</li>
-    <li className='nav-dropdown-item' onClick={()=>navigate('/ladder')}>Ladder</li>
+    <li className='nav-dropdown-item' onClick={onClick('/register')}>Register</li>
+    <li className='nav-dropdown-item' onClick={onClick('/ladder')}>Ladder</li>
   </ul>
     );
 }
