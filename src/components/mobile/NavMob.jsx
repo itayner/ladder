@@ -4,28 +4,33 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import $ from 'jquery';
 
 import { useNavDropdownMob } from '../../contexts/navDropdownMob';
+import { useContentMob } from '../../contexts/contentMob';
 
 import '../../../src/styles.css';
 import '../../../src/responsive.css'
 
 function NavMob(props) {
 
-    const {state, dispatch} = useNavDropdownMob();
+    const {state, dispatch: contentDispatch} = useContentMob();
+    const {dispatch : visDispatch} = useNavDropdownMob();
 
-    const onClick = (e) => {
-        dispatch({type: 'toggle'});
+    const onMenuClick = (e) => {
+        visDispatch({type: 'toggle'});
         e.stopPropagation();
     };
+
+    const content = state.content;
 
     return (
 
 
         <div className='nav-mob-container'>
             <div className='nav-mob-wrapper'>
-                <div style={{paddingRight: '10px'}}>
+            <button className="btn btn-dark btn-sm m-1 filter-button-mob" style={{display: `${content=='ladder' ? 'block' : 'none'}`}}>Filter</button>
+                <div className='menu-icon-wrapper-mob'>
                     
 
-<FontAwesomeIcon className='nav-mob cursor-pointer' icon={faBars} onClick={onClick} />
+<FontAwesomeIcon className='cursor-pointer' icon={faBars} onClick={onMenuClick} />
                     
                     
                 </div>

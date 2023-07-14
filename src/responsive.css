@@ -1,20 +1,7 @@
 @media only screen and (min-width: 350px) {
-    .nav-mob-container {
-        display: none;
-    }
-    .ladder-mob-container{
-        display: none;
-    }
-    .reg-mob-container{
-        display: none;
-    }
-    .nav-dropdown-mob{
-        display: none;
-    }
     .mob-container{
         display: none;
     }
-    
 }
 @media only screen and (max-width: 350px) {
     .nav-desk-container {

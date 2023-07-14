@@ -20,16 +20,30 @@ body {
     width: 100%;
     height: 40px;
     background-color: greenyellow;
-    position: fixed;
+    position: absolute;
 }
 .nav-mob-wrapper{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    width: 100%;
     height: 100%;
+    position: absolute;
+}
+.menu-icon-wrapper-mob{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .nav-mob-icon{
     padding-right: 15px;
+}
+.filter-button-mob{
+    position: absolute;
+    height: 40px;
+    left: 30px;
 }
 .nav-dropdown-mob{
     position: absolute;
@@ -88,6 +102,15 @@ body {
     border-bottom: 2px;
     border-color: black;
     border-bottom-style: groove;
+}
+.login-mob-container{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+}
+.login-mob-wrapper{
+    padding: 2px;
 }
 
 .reg-mob-container{

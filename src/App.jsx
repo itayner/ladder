@@ -11,6 +11,7 @@ import RegisterMob from './components/mobile/content/RegisterMob/RegisterMob.jsx
 import RegisterDesk from './components/desktop/content/RegisterDesk'
 
 import { NavDropdownMobProvider } from './contexts/navDropdownMob'
+import { ContentMobProvider } from './contexts/contentMob';
 import Mob from './components/mobile/Mob';
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
   return (
     <div className="app" style={{position: 'absolute'}}>
       <NavDropdownMobProvider>
+        <ContentMobProvider>
         <Mob />
+        </ContentMobProvider>
       </NavDropdownMobProvider>
 
 
