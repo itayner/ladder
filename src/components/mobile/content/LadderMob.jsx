@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import arr from '../../../util/data';
 import _ from 'lodash';
 
+import Player from '../Player';
 import { useFilterContext } from '../../../contexts/filter';
 
 function LadderMob(props) {
@@ -35,7 +36,7 @@ function LadderMob(props) {
             <div className='ladder-mob-wrapper'>
                 {
                     filtered.map(i => (
-                        <div key={i.id} className='ladder-mob-player'>{i.first}&nbsp;{i.last}</div>
+                        <Player player={i} key={i.id} />
                     ))
                 }
             </div>

@@ -5,8 +5,8 @@ const makePlayers = (gender, tennis, pickleBall, num, arr) => {
     for (let i = 0; i < num; i++){
         const id = uuid.v4();
         arr.push({
-            first: 'aa', 
-            last: 'bb', 
+            first: 'Aaaaaa', 
+            last: 'Bbbbbb', 
             email: 'abc@gmail.com', 
             phone: '5555555555',
             gender,
