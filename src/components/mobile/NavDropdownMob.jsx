@@ -12,7 +12,7 @@ function NavDropdownMob(props) {
   
 
   const onClick = (content) => (e) => {
-    contentDispatch({type: 'updateContent', payload: content});
+    contentDispatch({type: 'setContent', payload: content});
     navigate('/' + content);
     visDispatch({type: 'toggle'});
     e.stopPropagation();

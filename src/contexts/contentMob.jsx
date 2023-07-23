@@ -4,7 +4,7 @@ const ContentContext = React.createContext()
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'updateContent': {
+    case 'setContent': {
       return {content: action.payload}
     }
     default: {
@@ -24,9 +24,9 @@ function ContentMobProvider({children}) {
 function useContentMob() {
   const context = React.useContext(ContentContext)
   if (context === undefined) {
-    throw new Error('useCount must be used within a NavDropdownMobProvider')
+    throw new Error('useCount must be used within a ContentMobProvider')
   }
-  return context
+  return context;
 }
 
 export {ContentMobProvider, useContentMob}
