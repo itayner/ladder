@@ -14,6 +14,7 @@ import RegisterDesk from './components/desktop/content/RegisterDesk'
 import { NavDropdownMobProvider } from './contexts/navDropdownMob'
 import { ContentMobProvider } from './contexts/contentMob';
 import { FilterProvider } from './contexts/filter';
+import { PlayerPopupMobProvider } from './contexts/playerPopupMob';
 import Mob from './components/mobile/Mob';
 
 function App() {
@@ -53,7 +54,9 @@ const myTheme = createTheme({
     <div className="app" style={{position: 'absolute'}}>
       <NavDropdownMobProvider>
         <ContentMobProvider>
+          <PlayerPopupMobProvider>
         <Mob />
+          </PlayerPopupMobProvider>
         </ContentMobProvider>
       </NavDropdownMobProvider>
 

@@ -112,6 +112,22 @@ body {
     height: 20px;
     display: flex;
     align-items: center;
+    border-bottom: solid;
+}
+.player-popup-container-mob{
+width: 100%;
+min-height: 50px;
+position: absolute;
+top: 50px;
+z-index: 98;
+background-color: white;
+border-radius: 5px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.player-popup-wrapper-mob{
+    width: 100%;
+    height: 100%;
+    padding: 6px;
 }
 
 .ladder-desk-container{

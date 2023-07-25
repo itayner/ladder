@@ -9,16 +9,21 @@ import FilterMob from './content/FilterMob';
 
 import { useNavDropdownMob } from '../../contexts/navDropdownMob';
 import { useContentMob } from '../../contexts/contentMob';
+import { usePlayerPopupMob } from '../../contexts/playerPopupMob';
+import PlayerPopup from './PlayerPopup';
 
 
 
 function Mob(props) {
-    const {state, dispatch : dispatchMenuToggle} = useNavDropdownMob();
+    const {state : menuState, dispatch : dispatchMenuToggle} = useNavDropdownMob();
+    const {state : playerPopupState, dispatch : dispatchPlayerToggle} = usePlayerPopupMob();
     const {dispatch : dispatchContent} = useContentMob();
 
     const onClick = () => {
-        if (state.visible)
+        if (menuState.visible)
             dispatchMenuToggle({type: 'toggle'});
+        if (playerPopupState.visible)
+            dispatchPlayerToggle({type: 'toggle'});
     };
 
     useEffect(() => {
@@ -29,6 +34,7 @@ function Mob(props) {
         <div className='mob-container' onClick={onClick}>     
         <NavMob />
         <NavDropdownMob />
+        <PlayerPopup />
       
 
       <Routes>

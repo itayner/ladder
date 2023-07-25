@@ -6,10 +6,12 @@ import _ from 'lodash';
 
 import Player from '../Player';
 import { useFilterContext } from '../../../contexts/filter';
+import { usePlayerPopupMob } from '../../../contexts/playerPopupMob';
 
 function LadderMob(props) {
     const [players, setPlayers] = useState([]);
     const {state: filter} = useFilterContext();
+    const {state: playerPopupState ,dispatch} = usePlayerPopupMob();
     var myArr;
 
     const getData = async () => {
@@ -31,12 +33,19 @@ function LadderMob(props) {
         return sport === 'Tennis' ? p.tennis.skill === skill : p.pickleBall.skill === skill;
     });
 
+    const onClick = (player) => (e) => {
+        if (!playerPopupState.visible)
+            dispatch({type: 'player', payload: player});
+        dispatch({type: 'toggle'});
+        e.stopPropagation();
+    };
+
     return (
         <div className='ladder-mob-container' id='ladder-mob-container'>
             <div className='ladder-mob-wrapper'>
                 {
                     filtered.map(i => (
-                        <Player player={i} key={i.id} />
+                        <Player player={i} key={i.id} onClick={onClick(i)} />
                     ))
                 }
             </div>

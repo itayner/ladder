@@ -4,11 +4,13 @@ import { faIdBadge, faIdCard } from '@fortawesome/free-regular-svg-icons';
 
 
 
-function Player({player}) {
+function Player({player, onClick}) {
     const {first, last} = player;
+
+
     return (
-        <div className='player-container-mob'>
-            <div className='px-1'>
+        <div className='player-container-mob' onClick={onClick}>
+            <div className='px-2'>
             <FontAwesomeIcon className='cursor-pointer' icon={faIdCard} />
             </div>
             <div>{first}&nbsp;{last}</div>
