@@ -15,6 +15,7 @@ import { NavDropdownMobProvider } from './contexts/navDropdownMob'
 import { ContentMobProvider } from './contexts/contentMob';
 import { FilterProvider } from './contexts/filter';
 import { PlayerPopupMobProvider } from './contexts/playerPopupMob';
+import { DragProvider } from './contexts/drag';
 import Mob from './components/mobile/Mob';
 
 function App() {
@@ -55,7 +56,9 @@ const myTheme = createTheme({
       <NavDropdownMobProvider>
         <ContentMobProvider>
           <PlayerPopupMobProvider>
+            <DragProvider>
         <Mob />
+            </DragProvider>
           </PlayerPopupMobProvider>
         </ContentMobProvider>
       </NavDropdownMobProvider>

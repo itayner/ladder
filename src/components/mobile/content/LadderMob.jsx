@@ -7,11 +7,13 @@ import _ from 'lodash';
 import Player from '../Player';
 import { useFilterContext } from '../../../contexts/filter';
 import { usePlayerPopupMob } from '../../../contexts/playerPopupMob';
+import { useDragContext } from '../../../contexts/drag';
 
 function LadderMob(props) {
     const [players, setPlayers] = useState([]);
     const {state: filter} = useFilterContext();
-    const {state: playerPopupState ,dispatch} = usePlayerPopupMob();
+    const {state: playerPopupState ,dispatch : ppDispatcher} = usePlayerPopupMob();
+    const {state: dragState, dispatch: dragDispatcher} = useDragContext();
     var myArr;
 
     const getData = async () => {
@@ -34,10 +36,18 @@ function LadderMob(props) {
     });
 
     const onClick = (player) => (e) => {
-        if (!playerPopupState.visible)
-            dispatch({type: 'player', payload: player});
-        dispatch({type: 'toggle'});
-        e.stopPropagation();
+        console.log('onClick called for a Player item!!!');
+        if (!dragState.drag){
+            if (!playerPopupState.visible){
+                console.log('setPlayerPopup called!!!');
+                ppDispatcher({type: 'setPlayerPopup', payload: player});
+                e.stopPropagation();
+            }
+            else{
+                console.log('hidePlayerPopup called!!!')
+                ppDispatcher({type: 'hidePlayerPopup'});
+            }
+        }
     };
 
     return (

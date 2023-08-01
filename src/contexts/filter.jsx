@@ -20,7 +20,7 @@ function FilterProvider({children}){
 function useFilterContext(){
     const context = React.useContext(FilterContext);
     if (context === undefined)
-        throw new Error('useCount must be used within a ContentMobProvider');
+        throw new Error('useFilterContext must be used within a FilterProvider');
     return context;
 }
 

@@ -4,11 +4,11 @@ const PlayerPopupContext = React.createContext()
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'toggle': {
-      return {visible: !state.visible, player: {...state.player}}
-    }
-    case 'player': {
-        return {player: action.payload, visible: state.visible}
+    case 'hidePlayerPopup': {
+        return {visible: false, player: {...state.player}}
+      }
+    case 'setPlayerPopup': {
+        return {player: action.payload, visible: true}
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
