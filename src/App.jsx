@@ -8,7 +8,7 @@ import NavDropdownMob from './components/mobile/NavDropdownMob'
 import NavDesk from './components/desktop/NavDesk.jsx'
 import LadderMob from './components/mobile/content/LadderMob'
 import LadderDesk from './components/desktop/content/LadderDesk'
-import RegisterMob from './components/mobile/content/RegisterMob/RegisterMob.jsx'
+import RegisterMob from './components/mobile/content/RegisterMob.jsx'
 import RegisterDesk from './components/desktop/content/RegisterDesk'
 
 import { NavDropdownMobProvider } from './contexts/navDropdownMob'
