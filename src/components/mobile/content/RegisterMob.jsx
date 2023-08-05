@@ -18,7 +18,6 @@ function RegisterMob(props) {
     navigate("/register2");
     return true;
   };
-  const handleChange = () => {};
   const validationSchema = Yup.object({
     first: Yup.string().required().min(2).label("First name"),
     last: Yup.string().required().min(2).label("Last name"),
@@ -88,14 +87,12 @@ function RegisterMob(props) {
                   type="text"
                   className="form-control"
                   placeholder="first"
-                  onChange={handleChange}
                 />
                 <Field
                   name="last"
                   type="text"
                   className="form-control"
                   placeholder="last"
-                  onChange={handleChange}
                 />
               </div>
               <div className="mb-1">

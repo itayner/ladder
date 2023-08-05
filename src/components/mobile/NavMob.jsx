@@ -15,7 +15,7 @@ function NavMob(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { state, dispatch: contentDispatch } = useContentMob();
+  const { state: contentState, dispatch: contentDispatch } = useContentMob();
   const { dispatch: navMenuDispatcher } = useNavDropdownMob();
   const { state: ppState, dispatch: ppDispatcher } = usePlayerPopupMob();
 
@@ -26,19 +26,21 @@ function NavMob(props) {
     if (ppState.visible) ppDispatcher({ type: "hidePlayerPopup" });
   };
 
-  const content = state.content;
-
   const onFilterButtonClick = () => {
     contentDispatch({ type: "setContent", payload: "filter" });
     navigate("/filter");
   };
 
   useEffect(() => {
-    const path = location.pathname;
-    console.log(path);
-    if (path !== "/ladder")
-      contentDispatch({ type: "setContent", payload: "notLadder" });
-  }, []);
+    console.log("hi");
+    console.log(contentState.content);
+    if (contentState.content === "unknown") {
+      contentDispatch({
+        type: "setContent",
+        payload: `${location.pathname === "/ladder" ? "ladder" : "nonLadder"}`,
+      });
+    }
+  }, [contentState.content]);
 
   return (
     <div className="nav-mob-container" onClick={onClick}>
@@ -46,7 +48,9 @@ function NavMob(props) {
         <button
           onClick={onFilterButtonClick}
           className="btn btn-dark btn-sm m-1 filter-button-mob"
-          style={{ display: `${content == "ladder" ? "block" : "none"}` }}
+          style={{
+            display: `${contentState.content == "ladder" ? "block" : "none"}`,
+          }}
         >
           Filter
         </button>
