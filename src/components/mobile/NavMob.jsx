@@ -32,8 +32,6 @@ function NavMob(props) {
   };
 
   useEffect(() => {
-    console.log("hi");
-    console.log(contentState.content);
     if (contentState.content === "unknown") {
       contentDispatch({
         type: "setContent",
