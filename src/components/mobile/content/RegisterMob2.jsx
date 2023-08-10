@@ -1,37 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRegContext } from "../../../contexts/reg";
+import { useNavigate } from "react-router-dom";
 
 function RegisterMob2(props) {
   const { state, dispatch } = useRegContext();
+  const navigate = useNavigate();
 
-  const [pbFlag, setPbFlag] = useState(true);
-  const [pbSkill, setPbSkill] = useState("Int");
-  const [tennisFlag, setTennisFlag] = useState(false);
-  const [tennisSkill, setTennisSkill] = useState("Int");
+  const { sportDetail } = state;
+
+  /*
+  useEffect(() => {
+    console.log("useEffect function called!!!");
+  }, [state.sportDetail.pbFlag, pbSkill, tennisFlag, tennisSkill]);
+  */
+  const [pbFlag, setPbFlag] = useState(sportDetail.pbFlag);
+  const [pbSkill, setPbSkill] = useState(sportDetail.pbSkill);
+  const [tennisFlag, setTennisFlag] = useState(sportDetail.tennisFlag);
+  const [tennisSkill, setTennisSkill] = useState(sportDetail.tennisSkill);
+
   const [error, setError] = useState(false);
 
-  const onChangeSport = (name, setF) => (e) => {
+  const onChangeSport = (sportFlag, setF) => (e) => {
     if (e.target.checked) setError(false);
+    let p = { ...sportDetail };
+    p[sportFlag] = e.target.checked;
+    dispatch({
+      type: "updateSportDetail",
+      payload: p,
+    });
     setF(e.target.checked);
-    dispatch({
-      type: "updateSportDetail",
-      payload: { ...state.sportDetail, name: e.target.checked },
-    });
   };
-  const onChange = (name, setF, val) => (e) => {
-    setF(val);
+  const onChangeSkill = (name, level, setF) => (e) => {
+    let p = { ...sportDetail };
+    p[name] = level;
     dispatch({
       type: "updateSportDetail",
-      payload: { ...state.sportDetail, name: e.target.checked },
+      payload: p,
     });
+    setF(level);
   };
   const onSubmit = () => {
     console.log("Registering new user!!!");
+    console.log(state);
     if (!tennisFlag && !pbFlag) {
       setError(true);
       return;
     }
     //make call to server using state from useRegContext
+  };
+  const onBack = () => {
+    navigate("/register2");
   };
 
   return (
@@ -67,7 +85,7 @@ function RegisterMob2(props) {
                 name="pbBeg"
                 value="Beg"
                 checked={pbSkill === "Beg"}
-                onChange={onChange("pbSkill", setPbSkill, "Beg")}
+                onChange={onChangeSkill("pbSkill", "Beg", setPbSkill)}
                 disabled={!pbFlag}
               />
               <label className="form-check-label" htmlFor="pbBeg">
@@ -81,7 +99,7 @@ function RegisterMob2(props) {
                 name="pbInt"
                 value="Int"
                 checked={pbSkill === "Int"}
-                onChange={onChange("pbSkill", setPbSkill, "Int")}
+                onChange={onChangeSkill("pbSkill", "Int", setPbSkill)}
                 disabled={!pbFlag}
               />
               <label className="form-check-label" htmlFor="pbInt">
@@ -95,7 +113,7 @@ function RegisterMob2(props) {
                 name="pbAdv"
                 value="Adv"
                 checked={pbSkill === "Adv"}
-                onChange={onChange("pbSkill", setPbSkill, "Adv")}
+                onChange={onChangeSkill("pbSkill", "Adv", setPbSkill)}
                 disabled={!pbFlag}
               />
               <label className="form-check-label" htmlFor="pbAdv">
@@ -126,7 +144,7 @@ function RegisterMob2(props) {
                 name="tennisBeg"
                 value="Beg"
                 checked={tennisSkill === "Beg"}
-                onChange={onChange("tennisSkill", setTennisSkill, "Beg")}
+                onChange={onChangeSkill("tennisSkill", "Beg", setTennisSkill)}
                 disabled={!tennisFlag}
               />
               <label className="form-check-label" htmlFor="tennisBeg">
@@ -140,7 +158,7 @@ function RegisterMob2(props) {
                 name="tennisInt"
                 value="Int"
                 checked={tennisSkill === "Int"}
-                onChange={onChange("tennisSkill", setTennisSkill, "Int")}
+                onChange={onChangeSkill("tennisSkill", "Int", setTennisSkill)}
                 disabled={!tennisFlag}
               />
               <label className="form-check-label" htmlFor="tennisAdv">
@@ -154,7 +172,7 @@ function RegisterMob2(props) {
                 name="tennisAdv"
                 value="Adv"
                 checked={tennisSkill === "Adv"}
-                onChange={onChange("tennisSkill", setTennisSkill, "Adv")}
+                onChange={onChangeSkill("tennisSkill", "Adv", setTennisSkill)}
                 disabled={!tennisFlag}
               />
               <label className="form-check-label" htmlFor="tennisAdv">
@@ -165,7 +183,9 @@ function RegisterMob2(props) {
         </div>
         <div className="reg-mob2-btn-container">
           <div className="btn-group" role="group">
-            <button className="btn btn-secondary">Back</button>
+            <button className="btn btn-secondary" onClick={onBack}>
+              Back
+            </button>
             <button
               type="submit"
               className="btn btn-primary"
