@@ -9,7 +9,28 @@ body {
 .app {
   width: 100%;
   height: 100%;
-  background-color: #f0f0f0;
+}
+.my-container {
+  height: 100%;
+}
+.desk-nav {
+  height: 50px;
+  background-color: aquamarine;
+}
+.body {
+  height: 100%;
+}
+.side-panel {
+  background-color: cornflowerblue;
+  height: 100%;
+}
+.main-panel {
+  background-color: darkseagreen;
+  height: 100%;
+}
+.content-panel {
+  height: 100%;
+  width: 100%;
 }
 .mob-container {
   width: 100%;

@@ -14,22 +14,7 @@ import { usePlayerPopupMob } from "../../contexts/playerPopupMob";
 import { useDragContext } from "../../contexts/drag";
 import PlayerPopup from "./PlayerPopup";
 
-function Mob(props) {
-  const { state: menuState, dispatch: dispatchMenuToggle } =
-    useNavDropdownMob();
-  const { state: playerPopupState, dispatch: dispatchPlayerToggle } =
-    usePlayerPopupMob();
-  const { dispatch: dispatchContent } = useContentMob();
-  const { state: dragState, dispatch: dragDispatcher } = useDragContext();
-
-  const onClick = () => {
-    if (menuState.visible) dispatchMenuToggle({ type: "toggle" });
-    dragDispatcher({ type: "clearPressed" });
-  };
-  const onMouseMove = () => {
-    if (dragState.pressed) dragDispatcher({ type: "setDrag" });
-  };
-
+function Content(props) {
   return (
     <div className="mob-container" onClick={onClick} onMouseMove={onMouseMove}>
       <NavMob />
@@ -48,4 +33,4 @@ function Mob(props) {
   );
 }
 
-export default Mob;
+export default Content;

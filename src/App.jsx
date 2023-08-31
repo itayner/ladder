@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import { createTheme, ThemeProvider } from "@mui/material";
 
 import NavMob from "./components/mobile/NavMob";
@@ -16,9 +17,20 @@ import { FilterProvider } from "./contexts/filter";
 import { PlayerPopupMobProvider } from "./contexts/playerPopupMob";
 import { DragProvider } from "./contexts/drag";
 import { RegContextProvider } from "./contexts/reg";
-import Mob from "./components/mobile/Mob";
+import Content from "./components/mobile/Content";
+
+import useResizeListening from "./hooks/useResizeListening";
+import useMobileClickAndDrag from "./hooks/useMobileClickAndDrag";
+
+import { useIsMobileContext } from "./contexts/isMobile";
 
 function App() {
+  const {
+    state: { isMobile },
+  } = useIsMobileContext();
+  useResizeListening();
+  const { onMobileClick, onMobileMouseMove } = useMobileClickAndDrag();
+
   const { palette } = createTheme();
   const { augmentColor } = palette;
   const createColor = (mainColor) =>
@@ -49,23 +61,39 @@ function App() {
   return (
     <ThemeProvider theme={myTheme}>
       <FilterProvider>
-        <div className="app" style={{ position: "absolute" }}>
-          <RegContextProvider>
-            <NavDropdownMobProvider>
-              <ContentMobProvider>
-                <PlayerPopupMobProvider>
-                  <DragProvider>
-                    <Mob />
-                  </DragProvider>
-                </PlayerPopupMobProvider>
-              </ContentMobProvider>
-            </NavDropdownMobProvider>
-          </RegContextProvider>
-
-          <NavDesk />
-          <RegisterDesk />
-          {/*<LadderDesk /> */}
-        </div>
+        <RegContextProvider>
+          <ContentMobProvider>
+            <PlayerPopupMobProvider>
+              <div className="container my-container">
+                <div name="desktop-header" className="row d-none d-sm-block">
+                  <div className="col desk-nav g-0"></div>
+                </div>
+                <div className="row body">
+                  <div
+                    name="desktop-side-panel"
+                    className="col-3 side-panel d-none d-sm-block g-0"
+                  ></div>
+                  <div
+                    name="main-panel"
+                    className="col main-panel g-0"
+                    onClick={isMobile ? onMobileClick : () => null}
+                    onMouseMove={isMobile ? onMobileMouseMove : () => null}
+                  >
+                    <div
+                      name="mobile-header-container"
+                      className="d-xs-block d-sm-none"
+                    >
+                      <NavMob />
+                    </div>
+                    <div name="content-panel" className="content-panel"></div>
+                    {/* Components unique to mobile */}
+                    {isMobile /* && <NavDropdownMob /> && <PlayerPopup /> */}
+                  </div>
+                </div>
+              </div>
+            </PlayerPopupMobProvider>
+          </ContentMobProvider>
+        </RegContextProvider>
       </FilterProvider>
     </ThemeProvider>
   );

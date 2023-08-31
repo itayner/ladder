@@ -6,38 +6,30 @@ function RegisterMob2(props) {
   const { state, dispatch } = useRegContext();
   const navigate = useNavigate();
 
-  const { sportDetail } = state;
-
-  /*
-  useEffect(() => {
-    console.log("useEffect function called!!!");
-  }, [state.sportDetail.pbFlag, pbSkill, tennisFlag, tennisSkill]);
-  */
-  const [pbFlag, setPbFlag] = useState(sportDetail.pbFlag);
-  const [pbSkill, setPbSkill] = useState(sportDetail.pbSkill);
-  const [tennisFlag, setTennisFlag] = useState(sportDetail.tennisFlag);
-  const [tennisSkill, setTennisSkill] = useState(sportDetail.tennisSkill);
+  const {
+    sportDetail: { pbFlag, pbSkill, tennisFlag, tennisSkill },
+  } = state;
 
   const [error, setError] = useState(false);
 
-  const onChangeSport = (sportFlag, setF) => (e) => {
+  const onChangeSport = (sportFlag) => (e) => {
     if (e.target.checked) setError(false);
-    let p = { ...sportDetail };
+    let p = { ...state.sportDetail };
     p[sportFlag] = e.target.checked;
     dispatch({
       type: "updateSportDetail",
       payload: p,
     });
-    setF(e.target.checked);
+    //setF(e.target.checked);
   };
-  const onChangeSkill = (name, level, setF) => (e) => {
-    let p = { ...sportDetail };
+  const onChangeSkill = (name, level) => (e) => {
+    let p = { ...state.sportDetail };
     p[name] = level;
     dispatch({
       type: "updateSportDetail",
       payload: p,
     });
-    setF(level);
+    //setF(level);
   };
   const onSubmit = () => {
     console.log("Registering new user!!!");
@@ -70,7 +62,7 @@ function RegisterMob2(props) {
               type="checkbox"
               value=""
               name="pbCheckbox"
-              onChange={onChangeSport("pbFlag", setPbFlag)}
+              onChange={onChangeSport("pbFlag")}
               checked={pbFlag}
             />
             <label className="form-check-label" htmlFor="pbCheckbox">
@@ -85,7 +77,7 @@ function RegisterMob2(props) {
                 name="pbBeg"
                 value="Beg"
                 checked={pbSkill === "Beg"}
-                onChange={onChangeSkill("pbSkill", "Beg", setPbSkill)}
+                onChange={onChangeSkill("pbSkill", "Beg")}
                 disabled={!pbFlag}
               />
               <label className="form-check-label" htmlFor="pbBeg">
@@ -99,7 +91,7 @@ function RegisterMob2(props) {
                 name="pbInt"
                 value="Int"
                 checked={pbSkill === "Int"}
-                onChange={onChangeSkill("pbSkill", "Int", setPbSkill)}
+                onChange={onChangeSkill("pbSkill", "Int")}
                 disabled={!pbFlag}
               />
               <label className="form-check-label" htmlFor="pbInt">
@@ -113,7 +105,7 @@ function RegisterMob2(props) {
                 name="pbAdv"
                 value="Adv"
                 checked={pbSkill === "Adv"}
-                onChange={onChangeSkill("pbSkill", "Adv", setPbSkill)}
+                onChange={onChangeSkill("pbSkill", "Adv")}
                 disabled={!pbFlag}
               />
               <label className="form-check-label" htmlFor="pbAdv">
@@ -130,7 +122,7 @@ function RegisterMob2(props) {
               value=""
               id="flexCheckChecked"
               checked={tennisFlag}
-              onChange={onChangeSport("tennisFlag", setTennisFlag)}
+              onChange={onChangeSport("tennisFlag")}
             />
             <label className="form-check-label" htmlFor="flexCheckChecked">
               Tennis
@@ -144,7 +136,7 @@ function RegisterMob2(props) {
                 name="tennisBeg"
                 value="Beg"
                 checked={tennisSkill === "Beg"}
-                onChange={onChangeSkill("tennisSkill", "Beg", setTennisSkill)}
+                onChange={onChangeSkill("tennisSkill", "Beg")}
                 disabled={!tennisFlag}
               />
               <label className="form-check-label" htmlFor="tennisBeg">
@@ -158,7 +150,7 @@ function RegisterMob2(props) {
                 name="tennisInt"
                 value="Int"
                 checked={tennisSkill === "Int"}
-                onChange={onChangeSkill("tennisSkill", "Int", setTennisSkill)}
+                onChange={onChangeSkill("tennisSkill", "Int")}
                 disabled={!tennisFlag}
               />
               <label className="form-check-label" htmlFor="tennisAdv">
@@ -172,7 +164,7 @@ function RegisterMob2(props) {
                 name="tennisAdv"
                 value="Adv"
                 checked={tennisSkill === "Adv"}
-                onChange={onChangeSkill("tennisSkill", "Adv", setTennisSkill)}
+                onChange={onChangeSkill("tennisSkill", "Adv")}
                 disabled={!tennisFlag}
               />
               <label className="form-check-label" htmlFor="tennisAdv">
