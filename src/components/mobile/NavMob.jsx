@@ -5,7 +5,7 @@ import $ from "jquery";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import { useNavDropdownMob } from "../../contexts/navDropdownMob";
-import { useContentMob } from "../../contexts/contentMob";
+import { useContent } from "../../contexts/content";
 import { usePlayerPopupMob } from "../../contexts/playerPopupMob";
 
 import "../../../src/styles.css";
@@ -15,11 +15,12 @@ function NavMob(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { state: contentState, dispatch: contentDispatch } = useContentMob();
+  const { state: contentState, dispatch: contentDispatch } = useContent();
   const { dispatch: navMenuDispatcher } = useNavDropdownMob();
   const { state: ppState, dispatch: ppDispatcher } = usePlayerPopupMob();
 
   const onMenuClick = (e) => {
+    console.log("Nav menu icon clicked!!!");
     navMenuDispatcher({ type: "toggle" });
   };
   const onClick = () => {

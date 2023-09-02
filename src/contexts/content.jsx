@@ -13,7 +13,7 @@ function reducer(state, action) {
   }
 }
 
-function ContentMobProvider({ children }) {
+function ContentProvider({ children }) {
   const [state, dispatch] = React.useReducer(reducer, { content: "unknown" });
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context
@@ -23,7 +23,7 @@ function ContentMobProvider({ children }) {
   );
 }
 
-function useContentMob() {
+function useContent() {
   const context = React.useContext(ContentContext);
   if (context === undefined) {
     throw new Error("useCount must be used within a ContentMobProvider");
@@ -31,4 +31,4 @@ function useContentMob() {
   return context;
 }
 
-export { ContentMobProvider, useContentMob };
+export { ContentProvider, useContent };

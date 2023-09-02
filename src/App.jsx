@@ -10,9 +10,10 @@ import LadderMob from "./components/mobile/content/LadderMob";
 import LadderDesk from "./components/desktop/content/LadderDesk";
 import RegisterMob from "./components/mobile/content/RegisterMob.jsx";
 import RegisterDesk from "./components/desktop/content/RegisterDesk";
+import PlayerPopup from "./components/mobile/PlayerPopup";
 
 import { NavDropdownMobProvider } from "./contexts/navDropdownMob";
-import { ContentMobProvider } from "./contexts/contentMob";
+import { ContentProvider } from "./contexts/content";
 import { FilterProvider } from "./contexts/filter";
 import { PlayerPopupMobProvider } from "./contexts/playerPopupMob";
 import { DragProvider } from "./contexts/drag";
@@ -62,7 +63,7 @@ function App() {
     <ThemeProvider theme={myTheme}>
       <FilterProvider>
         <RegContextProvider>
-          <ContentMobProvider>
+          <ContentProvider>
             <PlayerPopupMobProvider>
               <div className="container my-container">
                 <div name="desktop-header" className="row d-none d-sm-block">
@@ -85,14 +86,26 @@ function App() {
                     >
                       <NavMob />
                     </div>
-                    <div name="content-panel" className="content-panel"></div>
+                    <div name="content-panel" className="content-panel">
+                      <Routes>
+                        <Route path="/ladder" element={<LadderMob />} />
+                        {/*
+                        <Route path="/login" element={<LoginMob />} />
+                        <Route path="/register" element={<RegisterMob />} />
+                        <Route path="/register2" element={<RegisterMob2 />} />
+                        <Route path="/filter" element={<FilterMob />} />
+                        <Route path="/" element={<LadderMob />} />
+                      */}
+                      </Routes>
+                    </div>
                     {/* Components unique to mobile */}
-                    {isMobile /* && <NavDropdownMob /> && <PlayerPopup /> */}
+                    {isMobile && <NavDropdownMob />}
+                    {isMobile && <PlayerPopup />}
                   </div>
                 </div>
               </div>
             </PlayerPopupMobProvider>
-          </ContentMobProvider>
+          </ContentProvider>
         </RegContextProvider>
       </FilterProvider>
     </ThemeProvider>

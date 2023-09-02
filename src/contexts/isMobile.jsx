@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 const IsMobileContext = createContext();
 
 const reducer = (state, action) => {
-  console.log(`action: ${action}`);
+  console.log(`action: ${action.type} ${action.payload}`);
   switch (action.type) {
     case "updateIsMobile":
       return { isMobile: action.payload };

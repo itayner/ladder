@@ -8,10 +8,6 @@ import RegisterMob2 from "./content/RegisterMob2";
 import LoginMob from "./content/LoginMob";
 import FilterMob from "./content/FilterMob";
 
-import { useNavDropdownMob } from "../../contexts/navDropdownMob";
-import { useContentMob } from "../../contexts/contentMob";
-import { usePlayerPopupMob } from "../../contexts/playerPopupMob";
-import { useDragContext } from "../../contexts/drag";
 import PlayerPopup from "./PlayerPopup";
 
 function Content(props) {
