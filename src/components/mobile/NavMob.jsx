@@ -10,6 +10,7 @@ import { usePlayerPopupMob } from "../../contexts/playerPopupMob";
 
 import "../../../src/styles.css";
 import "../../../src/responsive.css";
+import FilterButton from "./FilterButton";
 
 function NavMob(props) {
   const navigate = useNavigate();
@@ -44,6 +45,8 @@ function NavMob(props) {
   return (
     <div className="nav-mob-container" onClick={onClick}>
       <div className="nav-mob-wrapper">
+        <FilterButton width={50} height={30} color="white" />
+        {/*
         <button
           onClick={onFilterButtonClick}
           className="btn btn-dark btn-sm m-1 filter-button-mob"
@@ -53,6 +56,7 @@ function NavMob(props) {
         >
           Filter
         </button>
+          */}
         <div className="menu-icon-wrapper-mob">
           <FontAwesomeIcon
             className="cursor-pointer"
