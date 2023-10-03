@@ -1,66 +1,69 @@
-import React from 'react';
-import vertScroll from '../../../util/vertScroll';
-import { useEffect, useState } from 'react';
-import arr from '../../../util/data';
-import _ from 'lodash';
+import React from "react";
+import addVertDragScroll from "../../../util/vertScroll";
+import { useEffect, useState } from "react";
+import arr from "../../../util/data";
+import _ from "lodash";
 
-import Player from '../Player';
-import { useFilterContext } from '../../../contexts/filter';
-import { usePlayerPopupMob } from '../../../contexts/playerPopupMob';
-import { useDragContext } from '../../../contexts/drag';
+import Player from "../Player";
+import { useFilterContext } from "../../../contexts/filter";
+import { usePlayerPopupMob } from "../../../contexts/playerPopupMob";
+import { useDragContext } from "../../../contexts/drag";
 
 function LadderMob(props) {
-    const [players, setPlayers] = useState([]);
-    const {state: filter} = useFilterContext();
-    const {state: playerPopupState ,dispatch : ppDispatcher} = usePlayerPopupMob();
-    const {state: dragState, dispatch: dragDispatcher} = useDragContext();
-    var myArr;
+  const [players, setPlayers] = useState([]);
+  const { state: filter } = useFilterContext();
+  const { state: playerPopupState, dispatch: ppDispatcher } =
+    usePlayerPopupMob();
+  const { state: dragState, dispatch: dragDispatcher } = useDragContext();
+  var myArr;
 
-    const getData = async () => {
-        await setTimeout(()=>{setPlayers(arr);}, 1000); 
+  const getData = async () => {
+    await setTimeout(() => {
+      setPlayers(arr);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    const removeVertDragScroll = addVertDragScroll("#ladder-mob-container");
+    getData();
+    return () => removeVertDragScroll();
+  }, []);
+
+  const { gender, sport, skill } = filter;
+
+  var filtered = _.filter(players, (p) => {
+    if (gender !== p.gender) return false;
+    const playsSport =
+      sport === "Tennis" ? p.tennis.doPlay : p.pickleBall.doPlay;
+    if (!playsSport) return false;
+    return sport === "Tennis"
+      ? p.tennis.skill === skill
+      : p.pickleBall.skill === skill;
+  });
+
+  const onClick = (player) => (e) => {
+    console.log("onClick called for a Player item!!!");
+    if (!dragState.drag) {
+      if (!playerPopupState.visible) {
+        console.log("setPlayerPopup called!!!");
+        ppDispatcher({ type: "setPlayerPopup", payload: player });
+        e.stopPropagation();
+      } else {
+        console.log("hidePlayerPopup called!!!");
+        ppDispatcher({ type: "hidePlayerPopup" });
+      }
     }
+  };
 
-
-    useEffect(()=>{
-        vertScroll('#ladder-mob-container');
-        getData();
-    }, []);
-
-    const {gender, sport, skill} = filter;
-    
-    var filtered = _.filter(players, (p) => {
-        if (gender !== p.gender) return false;
-        const playsSport = sport === 'Tennis' ? p.tennis.doPlay : p.pickleBall.doPlay;
-        if (!playsSport) return false;
-        return sport === 'Tennis' ? p.tennis.skill === skill : p.pickleBall.skill === skill;
-    });
-
-    const onClick = (player) => (e) => {
-        console.log('onClick called for a Player item!!!');
-        if (!dragState.drag){
-            if (!playerPopupState.visible){
-                console.log('setPlayerPopup called!!!');
-                ppDispatcher({type: 'setPlayerPopup', payload: player});
-                e.stopPropagation();
-            }
-            else{
-                console.log('hidePlayerPopup called!!!')
-                ppDispatcher({type: 'hidePlayerPopup'});
-            }
-        }
-    };
-
-    return (
-        <div className='ladder-mob-container' id='ladder-mob-container'>
-            <div className='ladder-mob-wrapper'>
-                {
-                    filtered.map(i => (
-                        <Player player={i} key={i.id} onClick={onClick(i)} />
-                    ))
-                }
-            </div>
-        </div>
-    );
+  return (
+    <div className="ladder-mob-container" id="ladder-mob-container">
+      <div className="ladder-mob-wrapper">
+        {filtered.map((i) => (
+          <Player player={i} key={i.id} onClick={onClick(i)} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default LadderMob;

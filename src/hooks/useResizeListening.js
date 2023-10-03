@@ -12,7 +12,7 @@ export default function useResizeListening() {
 
   useEffect(() => {
     function updateIsMobile() {
-      const res = getWindowWidth() < 576;
+      const res = getWindowWidth() <= 768;
       dispatch({
         type: "updateIsMobile",
         payload: res,

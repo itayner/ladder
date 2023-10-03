@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { createTheme, ThemeProvider } from "@mui/material";
 
+import "../src/stylesResp.css";
+
 import NavMob from "./components/mobile/NavMob";
 import NavDropdownMob from "./components/mobile/NavDropdownMob";
 import NavDesk from "./components/desktop/NavDesk.jsx";
@@ -30,7 +32,7 @@ function App() {
     state: { isMobile },
   } = useIsMobileContext();
   useResizeListening();
-  const { onMobileClick, onMobileMouseMove } = useMobileClickAndDrag();
+  //const { onMobileClick, onMobileMouseMove } = useMobileClickAndDrag();
 
   const { palette } = createTheme();
   const { augmentColor } = palette;
@@ -65,28 +67,29 @@ function App() {
         <RegContextProvider>
           <ContentProvider>
             <PlayerPopupMobProvider>
-              <div className="container my-container">
-                <div name="desktop-header" className="row d-none d-sm-block">
+              <div className="container-fluid no-padding my-container">
+                <div
+                  name="desktop-header"
+                  className="row my-row d-none d-sm-block"
+                >
                   <div className="col desk-nav g-0"></div>
                 </div>
-                <div className="row body">
+                <div className="row my-row my-body">
                   <div
                     name="desktop-side-panel"
                     className="col-3 side-panel d-none d-sm-block g-0"
                   ></div>
-                  <div
-                    name="main-panel"
-                    className="col main-panel g-0"
-                    onClick={isMobile ? onMobileClick : () => null}
-                    onMouseMove={isMobile ? onMobileMouseMove : () => null}
-                  >
+                  <div name="main-panel" className="col main-panel g-0">
                     <div
                       name="mobile-header-container"
-                      className="d-xs-block d-sm-none"
+                      className="d-xs-block d-sm-none mobile-header-container"
                     >
                       <NavMob />
                     </div>
-                    <div name="content-panel" className="content-panel">
+                    <div
+                      name="content-panel"
+                      className="content-panel content-resp"
+                    >
                       <Routes>
                         <Route path="/ladder" element={<LadderMob />} />
                         {/*
