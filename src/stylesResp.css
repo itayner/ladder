@@ -1,5 +1,72 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
   .content-resp {
     border-color: blue;
+  }
+  .side-panel {
+    display: none;
+  }
+  .main-panel {
+    background-color: darkseagreen;
+    height: 100%;
+    width: 100%;
+  }
+  .ladder-container {
+    background-color: grey;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: hidden;
+  }
+  .player-popup-container {
+    width: 85%;
+    min-height: 50px;
+    position: absolute;
+    top: 50px;
+    left: 25px;
+    z-index: 3001;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
+@media only screen and (min-width: 576px) {
+  .side-panel {
+    background-color: cornflowerblue;
+    position: fixed;
+    width: 250px;
+    left: 0;
+    top: 40px;
+    bottom: 0;
+  }
+  .main-panel {
+    background-color: darkseagreen;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 250px;
+    overflow-y: auto;
+    z-index: 1;
+  }
+  .ladder-container {
+    background-color: grey;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .player-popup-container {
+    width: 400px;
+    min-height: 50px;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    z-index: 4001;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 }

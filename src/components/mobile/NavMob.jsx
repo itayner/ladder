@@ -28,11 +28,6 @@ function NavMob(props) {
     if (ppState.visible) ppDispatcher({ type: "hidePlayerPopup" });
   };
 
-  const onFilterButtonClick = () => {
-    contentDispatch({ type: "setContent", payload: "filter" });
-    navigate("/filter");
-  };
-
   useEffect(() => {
     if (contentState.content === "unknown") {
       contentDispatch({
@@ -46,17 +41,6 @@ function NavMob(props) {
     <div className="nav-mob-container" onClick={onClick}>
       <div className="nav-mob-wrapper">
         <FilterButton width={50} height={30} color="white" />
-        {/*
-        <button
-          onClick={onFilterButtonClick}
-          className="btn btn-dark btn-sm m-1 filter-button-mob"
-          style={{
-            display: `${contentState.content == "ladder" ? "block" : "none"}`,
-          }}
-        >
-          Filter
-        </button>
-          */}
         <div className="menu-icon-wrapper-mob">
           <FontAwesomeIcon
             className="cursor-pointer"

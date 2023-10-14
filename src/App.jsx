@@ -8,11 +8,13 @@ import "../src/stylesResp.css";
 import NavMob from "./components/mobile/NavMob";
 import NavDropdownMob from "./components/mobile/NavDropdownMob";
 import NavDesk from "./components/desktop/NavDesk.jsx";
-import LadderMob from "./components/mobile/content/LadderMob";
+import Ladder from "./components/mobile/content/Ladder";
 import LadderDesk from "./components/desktop/content/LadderDesk";
 import RegisterMob from "./components/mobile/content/RegisterMob.jsx";
 import RegisterDesk from "./components/desktop/content/RegisterDesk";
 import PlayerPopup from "./components/mobile/PlayerPopup";
+import FilterMob from "./components/mobile/content/FilterMob";
+import Sidebar from "./components/desktop/Sidebar";
 
 import { NavDropdownMobProvider } from "./contexts/navDropdownMob";
 import { ContentProvider } from "./contexts/content";
@@ -67,19 +69,15 @@ function App() {
         <RegContextProvider>
           <ContentProvider>
             <PlayerPopupMobProvider>
-              <div className="container-fluid no-padding my-container">
-                <div
-                  name="desktop-header"
-                  className="row my-row d-none d-sm-block"
-                >
-                  <div className="col desk-nav g-0"></div>
+              <div className="my-container">
+                <div name="desktop-header" className="d-none d-sm-block">
+                  <div className="desk-nav"></div>
                 </div>
-                <div className="row my-row my-body">
-                  <div
-                    name="desktop-side-panel"
-                    className="col-3 side-panel d-none d-sm-block g-0"
-                  ></div>
-                  <div name="main-panel" className="col main-panel g-0">
+                <div className="my-body">
+                  <div name="desktop-side-panel" className="side-panel">
+                    <Sidebar />
+                  </div>
+                  <div name="main-panel" className="main-panel">
                     <div
                       name="mobile-header-container"
                       className="d-xs-block d-sm-none mobile-header-container"
@@ -91,7 +89,8 @@ function App() {
                       className="content-panel content-resp"
                     >
                       <Routes>
-                        <Route path="/ladder" element={<LadderMob />} />
+                        <Route path="/ladder" element={<Ladder />} />
+                        <Route path="/filter" element={<FilterMob />} />
                         {/*
                         <Route path="/login" element={<LoginMob />} />
                         <Route path="/register" element={<RegisterMob />} />
@@ -103,7 +102,7 @@ function App() {
                     </div>
                     {/* Components unique to mobile */}
                     {isMobile && <NavDropdownMob />}
-                    {isMobile && <PlayerPopup />}
+                    <PlayerPopup />
                   </div>
                 </div>
               </div>

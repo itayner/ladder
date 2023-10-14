@@ -3,13 +3,14 @@ import addVertDragScroll from "../../../util/vertScroll";
 import { useEffect, useState } from "react";
 import arr from "../../../util/data";
 import _ from "lodash";
+import $ from "jquery";
 
 import Player from "../Player";
 import { useFilterContext } from "../../../contexts/filter";
 import { usePlayerPopupMob } from "../../../contexts/playerPopupMob";
 import { useDragContext } from "../../../contexts/drag";
 
-function LadderMob(props) {
+function Ladder(props) {
   const [players, setPlayers] = useState([]);
   const { state: filter } = useFilterContext();
   const { state: playerPopupState, dispatch: ppDispatcher } =
@@ -24,7 +25,7 @@ function LadderMob(props) {
   };
 
   useEffect(() => {
-    const removeVertDragScroll = addVertDragScroll("#ladder-mob-container");
+    const removeVertDragScroll = addVertDragScroll("#ladder-container");
     getData();
     return () => removeVertDragScroll();
   }, []);
@@ -46,7 +47,28 @@ function LadderMob(props) {
     if (!dragState.drag) {
       if (!playerPopupState.visible) {
         console.log("setPlayerPopup called!!!");
-        ppDispatcher({ type: "setPlayerPopup", payload: player });
+        console.log(e);
+
+        const elem = document.getElementById("ladder-container");
+        const isMobile = elem.offsetTop > 0; //implies whether width is greater than 576 => mobile vs desk
+        let top = 10;
+        if (elem.offsetHeight < 150) {
+          console.log("offsetHeight less than 200!!!");
+          e.preventDefault();
+          return;
+        }
+        if (isMobile) {
+          if (e.pageY + 150 > elem.offsetTop + elem.offsetHeight)
+            top = elem.offsetTop + 10;
+          else top = e.pageY - 40;
+        } else {
+          if (40 + elem.offsetHeight - e.pageY < 150) top = 10;
+          else top = e.pageY - 80;
+        }
+        console.log(
+          `offsetTop: ${elem.offsetTop}, offsetHeight: ${elem.offsetHeight}, e.pageY: ${e.pageY}`
+        );
+        ppDispatcher({ type: "setPlayerPopup", payload: { player, top } });
         e.stopPropagation();
       } else {
         console.log("hidePlayerPopup called!!!");
@@ -56,8 +78,8 @@ function LadderMob(props) {
   };
 
   return (
-    <div className="ladder-mob-container" id="ladder-mob-container">
-      <div className="ladder-mob-wrapper">
+    <div className="ladder-container" id="ladder-container">
+      <div className="ladder-wrapper">
         {filtered.map((i) => (
           <Player player={i} key={i.id} onClick={onClick(i)} />
         ))}
@@ -66,4 +88,4 @@ function LadderMob(props) {
   );
 }
 
-export default LadderMob;
+export default Ladder;

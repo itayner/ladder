@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavMob from "./NavMob";
 import NavDropdownMob from "./NavDropdownMob";
-import LadderMob from "./content/LadderMob";
+import LadderMob from "./content/Ladder";
 import RegisterMob from "./content/RegisterMob";
 import RegisterMob2 from "./content/RegisterMob2";
 import LoginMob from "./content/LoginMob";
