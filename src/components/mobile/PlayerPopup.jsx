@@ -15,6 +15,7 @@ function PlayerPopup(props) {
       style={{
         display: `${state.visible ? "block" : "none"}`,
         top: state.top,
+        left: state.left,
       }}
       onClick={onClick}
     >

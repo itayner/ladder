@@ -29,9 +29,11 @@ const addVertDragScroll = (containerSelector) => {
   };
 
   let tStart = (e) => {
+    /*
     console.log(
       `tStart called!!! container.offsetTop: ${container.offsetTop}, container.scrollTop: ${container.scrollTop}`
     );
+    */
     var touch = e.touches[0] || e.changedTouches[0];
     isDown = true;
     startY = touch.pageY - container.offsetTop;
@@ -40,11 +42,11 @@ const addVertDragScroll = (containerSelector) => {
     scrollTop = container.scrollTop;
   };
   let tEnd = (e) => {
-    console.log("tEnd called!!!");
+    //console.log("tEnd called!!!");
     isDown = false;
   };
   let tMove = (e) => {
-    console.log("tMove called!!!");
+    //console.log("tMove called!!!");
     if (isDown) {
       e.preventDefault();
       //Move vertcally
@@ -52,6 +54,7 @@ const addVertDragScroll = (containerSelector) => {
       const y = touch.pageY - container.offsetTop;
       const walkY = y - startY;
       container.scrollTop = scrollTop - walkY;
+      console.log(`container.scrollTop set to: ${scrollTop - walkY}`);
 
       //Move Horizontally
       /*

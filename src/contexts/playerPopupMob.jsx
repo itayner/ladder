@@ -5,12 +5,18 @@ const PlayerPopupContext = React.createContext();
 function reducer(state, action) {
   switch (action.type) {
     case "hidePlayerPopup": {
-      return { visible: false, player: { ...state.player }, top: state.top };
+      return {
+        visible: false,
+        player: { ...state.player },
+        top: state.top,
+        left: state.left,
+      };
     }
     case "setPlayerPopup": {
       return {
         player: action.payload.player,
         top: action.payload.top,
+        left: action.payload.left,
         visible: true,
       };
     }

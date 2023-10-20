@@ -9,6 +9,7 @@ import Player from "../Player";
 import { useFilterContext } from "../../../contexts/filter";
 import { usePlayerPopupMob } from "../../../contexts/playerPopupMob";
 import { useDragContext } from "../../../contexts/drag";
+import PlayerPopup from "../PlayerPopup";
 
 function Ladder(props) {
   const [players, setPlayers] = useState([]);
@@ -52,6 +53,7 @@ function Ladder(props) {
         const elem = document.getElementById("ladder-container");
         const isMobile = elem.offsetTop > 0; //implies whether width is greater than 576 => mobile vs desk
         let top = 10;
+        let left = 5;
         if (elem.offsetHeight < 150) {
           console.log("offsetHeight less than 200!!!");
           e.preventDefault();
@@ -64,11 +66,16 @@ function Ladder(props) {
         } else {
           if (40 + elem.offsetHeight - e.pageY < 150) top = 10;
           else top = e.pageY - 80;
+          const elem2 = document.getElementById("main-panel");
+          left = elem2.offsetLeft + 10;
         }
         console.log(
           `offsetTop: ${elem.offsetTop}, offsetHeight: ${elem.offsetHeight}, e.pageY: ${e.pageY}`
         );
-        ppDispatcher({ type: "setPlayerPopup", payload: { player, top } });
+        ppDispatcher({
+          type: "setPlayerPopup",
+          payload: { player, top, left },
+        });
         e.stopPropagation();
       } else {
         console.log("hidePlayerPopup called!!!");

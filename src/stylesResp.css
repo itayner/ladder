@@ -1,4 +1,7 @@
 @media only screen and (max-width: 576px) {
+  .desk-nav {
+    display: none;
+  }
   .content-resp {
     border-color: blue;
   }
@@ -32,6 +35,16 @@
   }
 }
 @media only screen and (min-width: 576px) {
+  .desk-nav {
+    height: 40px;
+    background-color: aquamarine;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index: -1;
+  }
   .side-panel {
     background-color: cornflowerblue;
     position: fixed;
@@ -48,7 +61,7 @@
     bottom: 0;
     left: 250px;
     overflow-y: auto;
-    z-index: 1;
+    z-index: 6;
   }
   .ladder-container {
     background-color: grey;
@@ -57,14 +70,16 @@
     left: 0;
     right: 0;
     bottom: 0;
+    overflow-y: hidden;
+    z-index: 5;
   }
   .player-popup-container {
     width: 400px;
     min-height: 50px;
     position: absolute;
-    top: 50px;
+    top: 20px;
     left: 20px;
-    z-index: 4001;
+    z-index: 3000;
     background-color: white;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

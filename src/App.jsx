@@ -70,14 +70,15 @@ function App() {
           <ContentProvider>
             <PlayerPopupMobProvider>
               <div className="my-container">
-                <div name="desktop-header" className="d-none d-sm-block">
-                  <div className="desk-nav"></div>
-                </div>
+                <div className="desk-nav"></div>
+                <div className="test"></div>
+                <PlayerPopup />
+
                 <div className="my-body">
                   <div name="desktop-side-panel" className="side-panel">
                     <Sidebar />
                   </div>
-                  <div name="main-panel" className="main-panel">
+                  <div id="main-panel" name="main-panel" className="main-panel">
                     <div
                       name="mobile-header-container"
                       className="d-xs-block d-sm-none mobile-header-container"
@@ -102,7 +103,6 @@ function App() {
                     </div>
                     {/* Components unique to mobile */}
                     {isMobile && <NavDropdownMob />}
-                    <PlayerPopup />
                   </div>
                 </div>
               </div>
