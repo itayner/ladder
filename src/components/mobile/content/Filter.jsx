@@ -5,13 +5,28 @@ import { css } from "@emotion/css";
 
 import { useFilterContext } from "../../../contexts/filter";
 import { useContent } from "../../../contexts/content";
+import { useIsMobileContext } from "../../../contexts/isMobile";
 
-function FilterMob(props) {
+function Filter(props) {
   const navigate = useNavigate();
   const { state: filter, dispatch: dFilter } = useFilterContext();
-  const { state: content, dispatch: dContent } = useContent();
+  const {
+    state: { content },
+    dispatch: dContent,
+  } = useContent();
+  const {
+    state: { isMobile },
+    dispatch: dIsMobile,
+  } = useIsMobileContext();
   const { gender, sport, skill } = filter;
 
+  useEffect(() => {
+    console.log(`in useEffect: isMobile=${isMobile} content=${content}`);
+    if (!isMobile && content === "filter") {
+      navigate("/ladder");
+      dContent({ type: "setContent", payload: "ladder" });
+    }
+  }, [isMobile]);
   const onGenderClick = (e) => {
     dFilter({
       type: "setFilter",
@@ -136,4 +151,4 @@ function FilterMob(props) {
   );
 }
 
-export default FilterMob;
+export default Filter;

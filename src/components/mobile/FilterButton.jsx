@@ -10,6 +10,7 @@ function FilterButton({ width, height, color }) {
   const { state: contentState, dispatch: contentDispatch } = useContent();
 
   const filterButtonClick = () => {
+    console.log("filterButton clicked!!!");
     contentDispatch({ type: "setContent", payload: "filter" });
     navigate("/filter");
   };

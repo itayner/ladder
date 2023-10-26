@@ -6,7 +6,7 @@ import LadderMob from "./content/Ladder";
 import RegisterMob from "./content/RegisterMob";
 import RegisterMob2 from "./content/RegisterMob2";
 import LoginMob from "./content/LoginMob";
-import FilterMob from "./content/FilterMob";
+import FilterMob from "./content/Filter";
 
 import PlayerPopup from "./PlayerPopup";
 

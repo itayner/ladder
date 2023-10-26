@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import "../src/stylesResp.css";
 
@@ -13,7 +14,7 @@ import LadderDesk from "./components/desktop/content/LadderDesk";
 import RegisterMob from "./components/mobile/content/RegisterMob.jsx";
 import RegisterDesk from "./components/desktop/content/RegisterDesk";
 import PlayerPopup from "./components/mobile/PlayerPopup";
-import FilterMob from "./components/mobile/content/FilterMob";
+import Filter from "./components/mobile/content/Filter";
 import Sidebar from "./components/desktop/Sidebar";
 
 import { NavDropdownMobProvider } from "./contexts/navDropdownMob";
@@ -48,16 +49,17 @@ function App() {
       violet: createColor("#BC00A3"),
       green: createColor("#00FF00"),
       white: createColor("#FFFFFF"),
+      black: createColor("#000000"),
       primary: {
-        light: "#757ce8",
-        main: "#3f50b5",
-        dark: "#002884",
-        contrastText: "#fff",
+        light: "#000000",
+        main: "#000000",
+        dark: "#000000",
+        contrastText: "#000000",
       },
       secondary: {
-        light: "#ff7961",
-        main: "#ffffff",
-        dark: "#ba000d",
+        light: "000000",
+        main: "#000000",
+        dark: "#000000",
         contrastText: "#000",
       },
     },
@@ -91,7 +93,7 @@ function App() {
                     >
                       <Routes>
                         <Route path="/ladder" element={<Ladder />} />
-                        <Route path="/filter" element={<FilterMob />} />
+                        <Route path="/filter" element={<Filter />} />
                         {/*
                         <Route path="/login" element={<LoginMob />} />
                         <Route path="/register" element={<RegisterMob />} />
