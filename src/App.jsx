@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import "../src/stylesResp.css";
+import "../src/styles.css";
 
 import NavMob from "./components/mobile/NavMob";
 import NavDropdownMob from "./components/mobile/NavDropdownMob";
@@ -72,8 +73,7 @@ function App() {
           <ContentProvider>
             <PlayerPopupMobProvider>
               <div className="my-container">
-                <div className="desk-nav"></div>
-                <div className="test"></div>
+                <NavDesk />
                 <PlayerPopup />
 
                 <div className="my-body">

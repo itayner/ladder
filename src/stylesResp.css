@@ -1,5 +1,5 @@
 @media only screen and (max-width: 576px) {
-  .desk-nav {
+  .nav-desk-container {
     display: none;
   }
   .content-resp {
@@ -33,11 +33,22 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
+  .filter-container {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: hidden;
+    object-fit: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
 }
 @media only screen and (min-width: 576px) {
-  .desk-nav {
+  .nav-desk-container {
     height: 40px;
-    background-color: aquamarine;
+    background-color: #00ff00;
     position: absolute;
     top: 0;
     left: 0;
@@ -46,7 +57,7 @@
     z-index: -1;
   }
   .side-panel {
-    background-color: cornflowerblue;
+    background-color: #f0f0f0;
     position: fixed;
     width: 250px;
     left: 0;
@@ -83,5 +94,16 @@
     background-color: white;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .filter-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: hidden;
+    object-fit: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
 }

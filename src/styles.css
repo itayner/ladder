@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   margin: 0;
@@ -6,6 +10,7 @@ body {
 #root {
   height: 100%;
 }
+
 .app {
   width: 100%;
   height: 100%;
@@ -30,16 +35,20 @@ body {
 .no-padding-right {
   padding-right: 0 !important;
 }
-.test {
+.nav-desk-icon{
   position: absolute;
-  top: 20px;
-  left: 200px;
-  width: 200px;
-  height: 30px;
-  z-index: 5;
-  background-color: crimson;
+  left: 1px;
+  top: 2px;
+  bottom: 0;
 }
-
+.nav-desk-slogan{
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  font-size: 26px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
 .my-body {
   height: 100%;
   width: 100%;
@@ -120,7 +129,7 @@ body {
   border-bottom-style: groove;
 }
 .sidebar-container {
-  background-color: beige;
+  background-color: #F0F0F0
   position: absolute;
   top: 0;
   left: 0;
@@ -137,16 +146,8 @@ body {
   background-color: blueviolet;
 }
 
-.filter-mob-container {
-  background-color: beige;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow-y: hidden;
-}
-.filter-mob-wrapper {
+
+.filter-wrapper {
   padding: 2px;
   width: 100%;
   height: 100%;

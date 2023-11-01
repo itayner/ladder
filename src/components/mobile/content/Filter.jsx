@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { ButtonGroup, Button } from "@mui/material";
 import { css } from "@emotion/css";
 
+import background from "../../../img/pickleBall2.jpg";
+
+import { Button as BTN } from "flowbite-react";
+
 import { useFilterContext } from "../../../contexts/filter";
 import { useContent } from "../../../contexts/content";
 import { useIsMobileContext } from "../../../contexts/isMobile";
@@ -53,9 +57,19 @@ function Filter(props) {
   const color = "white";
 
   return (
-    <div className="filter-mob-container">
-      <div className="filter-mob-wrapper">
+    <div
+      className="filter-container"
+      style={{ backgroundImage: `url(${background})` }}
+    >
+      <div className="filter-wrapper">
+        {/*         
+        <BTN gradientDuoTone="purpleToPink">Hi</BTN>
+        */}
+
         <div className="filter-item">
+          {/*           
+          <BTN gradientMonochrome="purple">Hi!!!!</BTN>
+          */}
           <ButtonGroup variant="outlined" color="secondary">
             {/*
                     <Button className={css`border-color: black !important; ${gender === 'Mens' ? 'border: 3px solid !important' : ''}`} onClick={onGenderClick} name='M'>M</Button>

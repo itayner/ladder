@@ -1,5 +1,6 @@
 import React from "react";
 import { usePlayerPopupMob } from "../../contexts/playerPopupMob";
+import { Button } from "flowbite-react";
 
 function PlayerPopup(props) {
   const { state } = usePlayerPopupMob();
@@ -20,6 +21,7 @@ function PlayerPopup(props) {
       onClick={onClick}
     >
       <div className="player-popup-wrapper">
+        <Button class="blue" />
         <div>
           {first}&nbsp;{last}
         </div>
