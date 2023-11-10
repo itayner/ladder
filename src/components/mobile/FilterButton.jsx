@@ -17,7 +17,7 @@ function FilterButton({ width, height, color }) {
 
   return (
     <div
-      className="filter-btn-wrapper"
+      className="button-wrapper"
       style={{
         width,
         height,

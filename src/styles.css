@@ -35,19 +35,19 @@ body {
 .no-padding-right {
   padding-right: 0 !important;
 }
-.nav-desk-icon{
+.nav-desk-icon {
   position: absolute;
   left: 1px;
   top: 2px;
   bottom: 0;
 }
-.nav-desk-slogan{
+.nav-desk-slogan {
   position: absolute;
   left: 50px;
   top: 0;
   bottom: 0;
   font-size: 26px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .my-body {
   height: 100%;
@@ -115,6 +115,8 @@ body {
 
 .nav-desk-wrapper {
   display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .ladder-wrapper {
@@ -129,7 +131,7 @@ body {
   border-bottom-style: groove;
 }
 .sidebar-container {
-  background-color: #F0F0F0
+  background-color: #f0f0f0;
   position: absolute;
   top: 0;
   left: 0;
@@ -146,7 +148,6 @@ body {
   background-color: blueviolet;
 }
 
-
 .filter-wrapper {
   padding: 2px;
   width: 100%;
@@ -155,16 +156,61 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.filter-btn-wrapper {
+.login-popup-container {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 300px;
+  height: 300px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 99;
+  background-color: cadetblue;
+  border-radius: 6%;
+}
+.login-popup-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.login-popup-email {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+.login-popup-password {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+}
+.login-popup-register {
+  position: absolute;
+  bottom: 60px;
+  right: 70px;
+  z-index: 3000;
+  font-size: 20px;
+  cursor: pointer;
+}
+.login-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.login-popup-paddle {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.my-button-target {
+  color: white;
+}
+.my-button-wrapper {
   background-color: black;
   position: absolute;
-  top: 5px;
-  left: 15px;
   border-radius: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 3000;
+  cursor: pointer;
 }
 .filter-btn-target {
   color: white;

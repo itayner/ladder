@@ -17,6 +17,7 @@ import RegisterDesk from "./components/desktop/content/RegisterDesk";
 import PlayerPopup from "./components/mobile/PlayerPopup";
 import Filter from "./components/mobile/content/Filter";
 import Sidebar from "./components/desktop/Sidebar";
+import LoginPopup from "./components/desktop/LoginPopup";
 
 import { NavDropdownMobProvider } from "./contexts/navDropdownMob";
 import { ContentProvider } from "./contexts/content";
@@ -24,6 +25,8 @@ import { FilterProvider } from "./contexts/filter";
 import { PlayerPopupMobProvider } from "./contexts/playerPopupMob";
 import { DragProvider } from "./contexts/drag";
 import { RegContextProvider } from "./contexts/reg";
+import { LoginProvider } from "./contexts/login";
+
 import Content from "./components/mobile/Content";
 
 import useResizeListening from "./hooks/useResizeListening";
@@ -72,42 +75,49 @@ function App() {
         <RegContextProvider>
           <ContentProvider>
             <PlayerPopupMobProvider>
-              <div className="my-container">
-                <NavDesk />
-                <PlayerPopup />
+              <LoginProvider>
+                <div className="my-container">
+                  <NavDesk />
+                  <PlayerPopup />
+                  <LoginPopup />
 
-                <div className="my-body">
-                  <div name="desktop-side-panel" className="side-panel">
-                    <Sidebar />
-                  </div>
-                  <div id="main-panel" name="main-panel" className="main-panel">
-                    <div
-                      name="mobile-header-container"
-                      className="d-xs-block d-sm-none mobile-header-container"
-                    >
-                      <NavMob />
+                  <div className="my-body">
+                    <div name="desktop-side-panel" className="side-panel">
+                      <Sidebar />
                     </div>
                     <div
-                      name="content-panel"
-                      className="content-panel content-resp"
+                      id="main-panel"
+                      name="main-panel"
+                      className="main-panel"
                     >
-                      <Routes>
-                        <Route path="/ladder" element={<Ladder />} />
-                        <Route path="/filter" element={<Filter />} />
-                        {/*
+                      <div
+                        name="mobile-header-container"
+                        className="d-xs-block d-sm-none mobile-header-container"
+                      >
+                        <NavMob />
+                      </div>
+                      <div
+                        name="content-panel"
+                        className="content-panel content-resp"
+                      >
+                        <Routes>
+                          <Route path="/ladder" element={<Ladder />} />
+                          <Route path="/filter" element={<Filter />} />
+                          {/*
                         <Route path="/login" element={<LoginMob />} />
                         <Route path="/register" element={<RegisterMob />} />
                         <Route path="/register2" element={<RegisterMob2 />} />
                         <Route path="/filter" element={<FilterMob />} />
                         <Route path="/" element={<LadderMob />} />
                       */}
-                      </Routes>
+                        </Routes>
+                      </div>
+                      {/* Components unique to mobile */}
+                      {isMobile && <NavDropdownMob />}
                     </div>
-                    {/* Components unique to mobile */}
-                    {isMobile && <NavDropdownMob />}
                   </div>
                 </div>
-              </div>
+              </LoginProvider>
             </PlayerPopupMobProvider>
           </ContentProvider>
         </RegContextProvider>

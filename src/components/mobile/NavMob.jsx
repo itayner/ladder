@@ -11,6 +11,7 @@ import { usePlayerPopupMob } from "../../contexts/playerPopupMob";
 import "../../../src/styles.css";
 import "../../../src/responsive.css";
 import FilterButton from "./FilterButton";
+import MyButton from "../MyButton";
 
 function NavMob(props) {
   const navigate = useNavigate();
@@ -27,6 +28,11 @@ function NavMob(props) {
   const onClick = () => {
     if (ppState.visible) ppDispatcher({ type: "hidePlayerPopup" });
   };
+  const filterButtonClicked = () => {
+    console.log("filterButton clicked!!!");
+    contentDispatch({ type: "setContent", payload: "filter" });
+    navigate("/filter");
+  };
 
   useEffect(() => {
     if (contentState.content === "unknown") {
@@ -40,7 +46,17 @@ function NavMob(props) {
   return (
     <div className="nav-mob-container" onClick={onClick}>
       <div className="nav-mob-wrapper">
-        <FilterButton width={50} height={30} color="white" />
+        {contentState.content === "ladder" && (
+          <MyButton
+            text="Filter"
+            width={50}
+            height={30}
+            color="white"
+            bgColor="black"
+            pos={{ top: "5px", left: "15px", right: "none", bottom: "none" }}
+            onClick={filterButtonClicked}
+          />
+        )}
         <div className="menu-icon-wrapper-mob">
           <FontAwesomeIcon
             className="cursor-pointer"
