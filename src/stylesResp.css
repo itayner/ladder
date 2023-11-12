@@ -57,7 +57,7 @@
     left: 0;
     right: 0;
     height: 40px;
-    z-index: 2000;
+    z-index: 2;
   }
   .side-panel {
     background-color: #f0f0f0;
@@ -116,7 +116,7 @@
     width: 300px;
     height: 300px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    z-index: 99;
+    z-index: 3000;
     background-color: cadetblue;
     border-radius: 6%;
   }

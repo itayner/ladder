@@ -76,12 +76,22 @@ function App() {
           <ContentProvider>
             <PlayerPopupMobProvider>
               <LoginProvider>
-                <div className="my-container">
+                <div
+                  className="my-container"
+                  onClick={() => {
+                    console.log("my-container received click!!!");
+                  }}
+                >
                   <NavDesk />
                   <PlayerPopup />
                   <LoginPopup />
 
-                  <div className="my-body">
+                  <div
+                    className="my-body"
+                    onClick={() => {
+                      console.log("my-body received click!!!");
+                    }}
+                  >
                     <div name="desktop-side-panel" className="side-panel">
                       <Sidebar />
                     </div>
