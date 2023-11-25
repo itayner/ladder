@@ -44,12 +44,8 @@ function Ladder(props) {
   });
 
   const onClick = (player) => (e) => {
-    console.log("onClick called for a Player item!!!");
     if (!dragState.drag) {
       if (!playerPopupState.visible) {
-        console.log("setPlayerPopup called!!!");
-        console.log(e);
-
         const elem = document.getElementById("ladder-container");
         const isMobile = elem.offsetTop > 0; //implies whether width is greater than 576 => mobile vs desk
         let top = 10;

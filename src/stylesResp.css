@@ -1,9 +1,14 @@
 @media only screen and (max-width: 576px) {
+  .content-panel {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
   .nav-desk-container {
     display: none;
-  }
-  .content-resp {
-    border-color: blue;
   }
   .side-panel {
     display: none;
@@ -12,15 +17,6 @@
     background-color: darkseagreen;
     height: 100%;
     width: 100%;
-  }
-  .ladder-container {
-    background-color: grey;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: hidden;
   }
   .player-popup-container {
     width: 85%;
@@ -33,22 +29,46 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-  .filter-container {
+  .login-popup-container {
+    display: none;
+  }
+  .register-container {
+    width: 100%;
+    height: 100%;
+  }
+  .register-personal-container {
     position: absolute;
-    top: 40px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    overflow-y: hidden;
-    object-fit: cover;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-color: beige;
+    padding: 10px;
   }
-  .login-popup-container {
+  .register-sport-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .register-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  .register-desktop {
     display: none;
   }
 }
 @media only screen and (min-width: 576px) {
+  .content-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
   .nav-desk-container {
     height: 40px;
     background-color: #00ff00;
@@ -77,16 +97,7 @@
     overflow-y: auto;
     z-index: 6;
   }
-  .ladder-container {
-    background-color: grey;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: hidden;
-    z-index: 5;
-  }
+
   .player-popup-container {
     width: 400px;
     min-height: 50px;
@@ -98,17 +109,6 @@
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-  .filter-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: hidden;
-    object-fit: cover;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
   .login-popup-container {
     position: absolute;
     top: 10px;
@@ -119,5 +119,37 @@
     z-index: 3000;
     background-color: cadetblue;
     border-radius: 6%;
+  }
+  .register-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .register-personal-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7%;
+    background-color: beige;
+    padding: 10px;
+  }
+  .register-sport-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 7%;
+    background-color: beige;
+  }
+  .register-wrapper {
+    padding: 40px;
+    width: 360px;
+  }
+  .register-desktop {
+    width: 100%;
+    height: 100%;
+    background-color: orchid;
   }
 }

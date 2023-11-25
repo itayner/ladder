@@ -15,10 +15,7 @@ function NavDesk(props) {
   }
 
   return (
-    <div
-      className="nav-desk-container"
-      onClick={() => console.log("nav-desk-container clicked!!!")}
-    >
+    <div className="nav-desk-container">
       <div className="nav-desk-wrapper">
         <div className="nav-desk-icon">
           <FontAwesomeIcon

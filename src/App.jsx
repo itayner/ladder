@@ -18,6 +18,7 @@ import PlayerPopup from "./components/mobile/PlayerPopup";
 import Filter from "./components/mobile/content/Filter";
 import Sidebar from "./components/desktop/Sidebar";
 import LoginPopup from "./components/desktop/LoginPopup";
+import Register from "./components/mobile/content/Register";
 
 import { NavDropdownMobProvider } from "./contexts/navDropdownMob";
 import { ContentProvider } from "./contexts/content";
@@ -76,22 +77,12 @@ function App() {
           <ContentProvider>
             <PlayerPopupMobProvider>
               <LoginProvider>
-                <div
-                  className="my-container"
-                  onClick={() => {
-                    console.log("my-container received click!!!");
-                  }}
-                >
+                <div className="my-container">
                   <NavDesk />
                   <PlayerPopup />
                   <LoginPopup />
 
-                  <div
-                    className="my-body"
-                    onClick={() => {
-                      console.log("my-body received click!!!");
-                    }}
-                  >
+                  <div className="my-body">
                     <div name="desktop-side-panel" className="side-panel">
                       <Sidebar />
                     </div>
@@ -106,13 +97,11 @@ function App() {
                       >
                         <NavMob />
                       </div>
-                      <div
-                        name="content-panel"
-                        className="content-panel content-resp"
-                      >
+                      <div name="content-panel" className="content-panel">
                         <Routes>
                           <Route path="/ladder" element={<Ladder />} />
                           <Route path="/filter" element={<Filter />} />
+                          <Route path="/register" element={<Register />} />
                           {/*
                         <Route path="/login" element={<LoginMob />} />
                         <Route path="/register" element={<RegisterMob />} />

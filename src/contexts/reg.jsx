@@ -3,7 +3,6 @@ import React, { useContext, createContext } from "react";
 const RegContext = createContext();
 
 function reducer(state, action) {
-  console.log("reducer called!!!");
   switch (action.type) {
     case "updateSportDetail":
       return {

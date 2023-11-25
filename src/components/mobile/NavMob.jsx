@@ -22,14 +22,12 @@ function NavMob(props) {
   const { state: ppState, dispatch: ppDispatcher } = usePlayerPopupMob();
 
   const onMenuClick = (e) => {
-    console.log("Nav menu icon clicked!!!");
     navMenuDispatcher({ type: "toggle" });
   };
   const onClick = () => {
     if (ppState.visible) ppDispatcher({ type: "hidePlayerPopup" });
   };
   const filterButtonClicked = () => {
-    console.log("filterButton clicked!!!");
     contentDispatch({ type: "setContent", payload: "filter" });
     navigate("/filter");
   };
