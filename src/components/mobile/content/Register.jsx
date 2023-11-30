@@ -15,7 +15,7 @@ function Register(props) {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [personalError, setPersonalError] = useState("");
-  const [childNum, setChildNum] = useState(2);
+  const [childNum, setChildNum] = useState(1);
   const [sportError, setSportError] = useState(false);
 
   const navigate = useNavigate();
@@ -65,7 +65,10 @@ function Register(props) {
   };
   const onChangeSport = (sportFlag) => (e) => {
     if (e.target.checked) setSportError(false);
-    else !regState.pbFlag || !regState.tennisFlag ? setSportError(true) : null;
+    else
+      !regState.sportDetail.pbFlag || !regState.sportDetail.tennisFlag
+        ? setSportError(true)
+        : null;
     let p = { ...regState.sportDetail };
     p[sportFlag] = e.target.checked;
     regDispatch({
@@ -93,7 +96,7 @@ function Register(props) {
     <div className="register-container">
       <div className="register-wrapper">
         {childNum === 1 && (
-          <div name="register-personal">
+          <div name="register-personal" className="register-personal">
             <div className="register-personal-container">
               <div className="margin-top-bottom">
                 <div>

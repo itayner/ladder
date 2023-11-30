@@ -155,6 +155,10 @@ body {
   border-color: black;
   border-bottom-style: groove;
 }
+.register-personal {
+  width: 100%;
+  height: 100%;
+}
 .sidebar-container {
   background-color: #f0f0f0;
   position: absolute;
